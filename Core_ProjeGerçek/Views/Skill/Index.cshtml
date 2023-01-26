@@ -1,0 +1,86 @@
+﻿@using EntitiyLayer.Concreate
+@model List<Skill>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+@{
+    string renk = "";
+}
+
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Deneyimlerim</h4>
+           
+            <div class="table-responsive">
+                <table class="table">
+                    <thead >
+            <tr>
+                <th >#</th>
+                <th >Başlık</th>
+                <th>Oran</th>
+                <th >Sil</th>
+                <th >Düzenle</th>
+               
+            </tr>
+        </thead>
+        <tbody class="list">
+            @foreach(var x in Model){
+                if (Convert.ToInt32(x.Value) >= 0 && Convert.ToInt32(x.Value) <= 50)
+                {
+                    renk = "progress-bar bg-danger";
+               
+                }
+                if (Convert.ToInt32(x.Value) >= 51 && Convert.ToInt32(x.Value) <= 70)
+                {
+                    renk = "progress-bar bg-warning";
+                   
+                }
+                if (Convert.ToInt32(x.Value) >= 71 && Convert.ToInt32(x.Value) <= 84)
+                {
+                    renk = "progress-bar bg-primary";
+                   
+                }
+                if (Convert.ToInt32(x.Value) >= 85 && Convert.ToInt32(x.Value) <= 100)
+                {
+                    renk = "progress-bar bg-success";
+                   
+                }
+            <tr>
+                <th >
+                      @x.SkillID
+                   
+                </th>
+                <td class="budget">
+                    <span class="name mb-0 text-sm">@x.Title</span>
+                </td>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <span class="completion mr-2">@x.Value %</span>
+                        <div>
+                            <div class="progress">
+                                <div class="progress-bar bg-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: @x.Value%;"></div>
+                            </div>
+                        </div>
+                        </div>
+                </td>
+            
+                <td>
+                    <a href="/Skill/RemoveSkill/@x.SkillID" class="btn btn-danger">Sil</a>
+                </td>
+                <td >
+                        <a href="/Skill/UpdateSkill/@x.SkillID"  class="btn btn-info">Güncelle</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+    <a href="/Skill/AddSkill" class="btn btn-primary m-3">Yeni Yetenek Ekle</a>
+</div>
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,42 @@
+﻿@model EntitiyLayer.Concreate.Contact
+@{
+    ViewData["Title"] = "UpdateContact";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("UpdateContact", "Contect", FormMethod.Post)){
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">İletişim Bilgileri</h4>
+
+            <form class="form-sample" >
+                <div class="form-group">
+
+                    @Html.HiddenFor(x=>x.ContactID, new {@class="form-control"})
+                </div>
+                <div class="form-group">
+                    <label>Başlık</label>
+                    @Html.TextBoxFor(x=>x.Title, new {@class="form-control"})
+                </div>
+                <div class="form-group">
+                    <label>Açıklama</label>
+                    @Html.TextAreaFor(x=>x.Description,5,3, new {@class="form-control"})
+                </div>
+                <div class="form-group">
+                    <label>Telefon Numarası</label>
+                    @Html.TextBoxFor(x=>x.Phone, new {@class="form-control"})
+                </div>
+                 <div class="form-group">
+                    <label>E-posta Adresi</label>
+                    @Html.TextBoxFor(x=>x.Mail,  new {@class="form-control"})
+                </div>
+                <button href="#" class="btn btn-success mt-3">Güncelle </button>
+
+            </form>
+        </div>
+
+    </div>
+
+</div>
+}

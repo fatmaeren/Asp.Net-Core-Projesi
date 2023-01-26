@@ -1,0 +1,45 @@
+﻿@using EntitiyLayer.Concreate
+@model List<WriterMessage>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Gelen Kutusu</h4>
+
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Konu</th>
+                            <th>Tarih</th>
+                            <th>Gönderen</th>
+                            <th>Detaylar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var x in Model)
+                        {
+                        
+                            <tr>
+                                <th>@x.ID</th>
+                                <td>@x.Subject</td>
+                                <td>@(((DateTime)x.Date).ToString("dd-mm-yyyy"))</td>
+                                <td>@x.SenderName</td>
+                                <td><a href="/Writer/Message/MessageDetails/@x.ID" class="btn btn-outline-primary">Detaylar</a></td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+

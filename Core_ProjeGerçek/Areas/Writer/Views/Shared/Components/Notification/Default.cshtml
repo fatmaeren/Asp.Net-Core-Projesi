@@ -1,0 +1,35 @@
+﻿@using EntitiyLayer.Concreate
+@model List<Duyurular>
+@{
+    string color = "";
+}
+
+<p class="mb-0 font-weight-normal float-left dropdown-header">Bildirimler</p>
+
+@foreach(var x in Model){
+    if (x.Status == "Yeni Yazı")
+    {
+        color = "preview-icon bg-success";
+    }
+    if (x.Status == "Yeni Video")
+    {
+        color = "preview-icon bg-warning";
+    }
+    if (x.Status == "Yeni Klip")
+    {
+        color = "preview-icon bg-primary";
+    }
+<a class="dropdown-item preview-item" href="/Writer/Default/DuyuruDetay/@x.ID">
+    <div class="preview-thumbnail">
+        <div class="@color">
+            <i class="ti-info-alt mx-0"></i>
+        </div>
+    </div>
+    <div class="preview-item-content">
+        <h6 class="preview-subject font-weight-normal">@x.Title</h6>
+        <p class="font-weight-light small-text mb-0 text-muted">
+           @x.Date.ToShortDateString()
+        </p>
+    </div>
+</a>
+}

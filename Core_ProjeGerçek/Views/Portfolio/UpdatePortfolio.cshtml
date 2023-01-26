@@ -1,0 +1,60 @@
+﻿@model EntitiyLayer.Concreate.Portfolio
+@{
+    ViewData["Title"] = "UpdatePortfolio";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Proje Güncelleme Formu</h4>
+@using (Html.BeginForm("UpdatePortfolio", "Portfolio", FormMethod.Post, new { @class = "m-5" }))
+{
+    @Html.HiddenFor(x=>x.PortfolioID)
+    @Html.Label("Proje İsmi")
+    @Html.TextBoxFor(x=>x.Name, new{@class="form-control mb-3"})
+    @Html.ValidationMessageFor(x=>x.Name)
+    <br />
+    @Html.Label("Proje Görüntüsü Küçük Ekran")
+    @Html.TextBoxFor(x=>x.ImageUrl, new{@class="form-control mb-3"})
+    @Html.ValidationMessageFor(x=>x.ImageUrl)
+    <br />
+    @Html.Label("Proje Görüntüsü Büyük Ekran")
+    @Html.TextBoxFor(x=>x.ImageUrl2, new{@class="form-control mb-3"})
+    @Html.ValidationMessageFor(x=>x.ImageUrl2)
+    <br />
+    @Html.Label("Proje Linki")
+    @Html.TextBoxFor(x=>x.ProjectUrl, new{@class="form-control mb-3"})
+    <br />
+    @Html.Label("Ekran Görüntüsü")
+    @Html.TextBoxFor(x=>x.Image1, new{@class="form-control mb-3"})
+    <br />
+    @Html.Label("Ekran Görüntüsü 2")
+    @Html.TextBoxFor(x=>x.Image2, new{@class="form-control mb-3"})
+    <br />
+    @Html.Label("Ekran Görüntüsü 3")
+    @Html.TextBoxFor(x=>x.Image3, new{@class="form-control mb-3"})
+    <br />
+    @Html.Label("Ekran Görüntüsü 4")
+    @Html.TextBoxFor(x=>x.Image4, new{@class="form-control mb-3"})
+    <br />
+    @Html.Label("Platform")
+    @Html.TextBoxFor(x=>x.Platform, new{@class="form-control mb-3"})
+    <br />
+    @Html.Label("Ücret")
+    @Html.TextBoxFor(x=>x.Price, new{@class="form-control mb-3"})
+    @Html.ValidationMessageFor(x=>x.Price)
+    <br />
+    @Html.Label("Proje Durumu")
+    @Html.TextBoxFor(x=>x.Status, new{@class="form-control mb-3"})
+    @Html.ValidationMessageFor(x=>x.Status)
+    <br />
+    @Html.Label("Bitirme Durumu")
+    @Html.TextBoxFor(x=>x.Value, new{@class="form-control mb-3"})
+    @Html.ValidationMessageFor(x=>x.Value)
+    <button href="#" class="btn btn-success mt-3">Düzenle </button>
+
+}
+  </div>
+    </div>
+</div>

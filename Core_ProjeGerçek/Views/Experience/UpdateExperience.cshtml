@@ -1,0 +1,35 @@
+﻿@model EntitiyLayer.Concreate.Experience
+@{
+    ViewData["Title"] = "UpdateExperience";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Deneyim Güncelleme Formu</h4>
+
+<form method="post" action="UpdateExperience"  class="form-group" enctype="multipart/form-data">
+
+   
+    @Html.HiddenFor(x=>x.ExperienceID)
+    @Html.Label("Ünvan")
+    @Html.TextBoxFor(x=>x.ExperienceAd, new {@class="form-control mb-2"})
+    @Html.Label("Firma")
+    @Html.TextBoxFor(x=>x.Name, new {@class="form-control mb-2"})
+    @Html.Label("Fotoğraf")
+     <img src="@Url.Content(Model.ImageUrl)" width="80" height="80"/>
+    <input type="file" name="ImageUrl" class="form-control" />
+    @Html.Label("Tarih")
+    @Html.TextBoxFor(x=>x.Date, new {@class="form-control mb-2"})
+    @Html.Label("Açıklama")
+    @Html.TextAreaFor(x=>x.Description, new {@class="form-control mb-2"})
+    <button href="#" class="btn btn-success mt-3">Güncelle </button>
+
+
+
+            </form>
+
+        </div>
+    </div>
+</div>

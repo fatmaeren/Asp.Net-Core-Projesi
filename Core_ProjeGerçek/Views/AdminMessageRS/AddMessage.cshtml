@@ -1,0 +1,28 @@
+﻿@model EntitiyLayer.Concreate.WriterMessage
+
+
+
+@{
+    ViewData["Title"] = "AddMessage";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Mesaj Yollama Formu</h4>
+            <form method="post" class="m-5">
+                <label> Alıcı </label>
+                <input type="text" name="Receiver" class="form-control" />
+                <label> Konu </label>
+                <input type="text" name="Subject" class="form-control" />
+                <label class="mt-3"> Mesaj </label>
+                <textarea rows="3" name="Content" class="form-control"></textarea>
+                <button href="#" class="btn btn-success mt-3">Gönder </button>
+            </form>
+
+        </div>
+
+    </div>
+
+</div>

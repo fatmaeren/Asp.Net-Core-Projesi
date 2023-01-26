@@ -1,0 +1,13 @@
+﻿@using EntitiyLayer.Concreate
+@model List<SocialMedia>
+<div class="social-nav" data-aos="fade-up" data-aos-delay="200">
+    <nav role="navigation">
+        <ul class="nav justify-content-left">
+            @foreach(var x in Model){
+                <li class="nav-item"><a class="nav-link" href="@x.Url" title="@x.Name">
+                    <i class="@x.Icon" style="font-size:1em"></i><span class="menu-title sr-only"></span></a>
+                </li>
+            }
+        </ul>
+    </nav>
+</div>

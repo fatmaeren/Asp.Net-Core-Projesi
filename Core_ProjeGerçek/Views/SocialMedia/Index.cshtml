@@ -1,0 +1,68 @@
+﻿@using EntitiyLayer.Concreate
+@model List<SocialMedia>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Sosyal Medya Hesaplarım</h4>
+
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Başlık</th>
+                            <th>Url</th>
+                            <th>Görsel</th>
+                            <th>Durum</th>
+                            <th>Sil</th>
+                            <th>Düzenle</th>
+
+                        </tr>
+                    </thead>
+                    <tbody class="list">
+                        @foreach (var x in Model)
+                        {
+
+
+                            <tr>
+                                <th>
+                                    @x.SocialMediaID
+
+                                </th>
+                                <td class="budget">
+                                    <span class="name mb-0 text-sm">@x.Name</span>
+                                </td>
+                                <td class="budget">
+                                    <span class="name mb-0 text-sm">@x.Url</span>
+                                </td>
+                               
+                                <td>
+                                    <!--<span class=""></span>-->
+                                    <i class="@x.Icon" style="font-size:1.5em"></i>
+                                </td>
+                                <td class="budget">
+                                    <span class="name mb-0 text-sm">@x.Status</span>
+                                </td>
+
+
+                                <td>
+                                    <a href="/SocialMedia/DeleteSocialMedia/@x.SocialMediaID" class="btn btn-danger">Sil</a>
+                                </td>
+                                <td>
+                                    <a href="/SocialMedia/UpdateSocialMedia/@x.SocialMediaID" class="btn btn-info">Güncelle</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <a href="/SocialMedia/AddSocialMedia" class="btn btn-primary m-3">Yeni Link Ekle</a>
+            </div>
+        </div>
+    </div>

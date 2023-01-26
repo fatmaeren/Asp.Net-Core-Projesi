@@ -1,0 +1,28 @@
+﻿@using EntitiyLayer.Concreate
+@model List<Experience>
+@{
+    ViewData["Title"] = "AddExperience";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Yeni Deneyim Ekle</h4>
+<form method="post" action="AddExperience"  class="form-group" enctype="multipart/form-data">
+    <label> Ünvan</label>
+    <input type="text" name="ExperienceAd" class="form-control" />
+    <label class="mt-3"> Firma </label>
+    <input type="text" name="Name" class="form-control" />
+    <label class="mt-3"> Fotoğraf </label>
+    <input type="file" name="ImageUrl" class="form-control" />
+    <label class="mt-3"> Tarih </label>
+    <input type="text" name="Date" class="form-control" />
+    <label class="mt-3"> Açıklama </label>
+    <textarea rows="3" name="Description" class="form-control" ></textarea>
+    <button href="#" class="btn btn-success mt-3">Ekle </button>
+</form>
+        </div>
+    </div>
+
+</div>

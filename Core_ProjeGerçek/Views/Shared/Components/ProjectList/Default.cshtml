@@ -1,0 +1,43 @@
+﻿@using EntitiyLayer.Concreate
+@model List<Portfolio> 
+<div class="row ">
+    <div class="col-12 grid-margin">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Proje Tablosu</h4>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                           
+                            <tr>
+                                <th>
+                                    #
+                                </th>
+                                <th> Resim </th>
+                                <th> Proje Adı </th>
+                                <th> Fiyat </th>
+                                 <th> Tamamlanma Oranı </th>
+                                <th> Durum</th>
+                               
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var x in Model)
+                            {
+                            <tr>
+                                <td>@x.PortfolioID</td>
+                                <td><img src="@x.ImageUrl"></img></td>
+                                <td>@x.Name</td>
+                                <td>@x.Price</td>
+                                <td> @x.Value % Tamamlandı </td>
+                                    <td>  <div class="badge badge-outline-success">Approved</div></td>
+                               
+                            </tr>
+                                }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
