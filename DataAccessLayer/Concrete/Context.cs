@@ -15,7 +15,7 @@ namespace DataAccessLayer.Concrete
      
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server=FATMA-EREN\\SQLEXPRESS;database=CoreProjeDbb;integrated security=true");
+            optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS;initial catalog=CoreProject;Trusted_Connection=True");
         }
 
         public DbSet<About> Abouts { get; set; }
